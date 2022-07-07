@@ -1,0 +1,170 @@
+{
+  "openapi": "3.0.0",
+  "paths": {
+    "/posts": {
+      "post": {
+        "operationId": "create",
+        "summary": "게시글 생성",
+        "description": "게시글을 생성한다",
+        "parameters": [],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": { "$ref": "#/components/schemas/CreatePostDto" }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/Post" }
+              }
+            }
+          }
+        },
+        "tags": ["posts"]
+      },
+      "get": {
+        "operationId": "findAll",
+        "summary": "모든 게시글 조회",
+        "description": "모든 게시글을 조회한다",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": { "$ref": "#/components/schemas/Post" }
+                }
+              }
+            }
+          }
+        },
+        "tags": ["posts"]
+      }
+    },
+    "/posts/{id}": {
+      "get": {
+        "operationId": "findOne",
+        "summary": "특정 게시글 조회",
+        "description": "특정 게시글을 조회한다",
+        "parameters": [
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "schema": { "type": "string" }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/Post" }
+              }
+            }
+          }
+        },
+        "tags": ["posts"]
+      },
+      "patch": {
+        "operationId": "update",
+        "summary": "특정 게시글 갱신",
+        "description": "특정 게시글을 갱신한다",
+        "parameters": [
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "schema": { "type": "string" }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": { "$ref": "#/components/schemas/UpdatePostDto" }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/Post" }
+              }
+            }
+          }
+        },
+        "tags": ["posts"]
+      },
+      "delete": {
+        "operationId": "remove",
+        "summary": "게시글 삭제",
+        "description": "특정 게시글을 삭제한다",
+        "parameters": [
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "schema": { "type": "string" }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/Post" }
+              }
+            }
+          }
+        },
+        "tags": ["posts"]
+      }
+    }
+  },
+  "info": {
+    "title": "Posts API Swagger",
+    "description": "The Posts API description",
+    "version": "1.0",
+    "contact": {}
+  },
+  "tags": [],
+  "servers": [],
+  "components": {
+    "schemas": {
+      "CreatePostDto": {
+        "type": "object",
+        "properties": {
+          "title": { "type": "string", "description": "게시글 제목" },
+          "content": { "type": "string", "description": "게시글 본문" }
+        },
+        "required": ["title", "content"]
+      },
+      "Post": {
+        "type": "object",
+        "properties": {
+          "id": { "type": "string" },
+          "title": { "type": "string" },
+          "content": { "type": "string" }
+        },
+        "required": ["id", "title", "content"]
+      },
+      "UpdatePostDto": {
+        "type": "object",
+        "properties": {
+          "title": { "type": "string", "description": "게시글 제목" },
+          "content": { "type": "string", "description": "게시글 본문" }
+        }
+      }
+    }
+  }
+}

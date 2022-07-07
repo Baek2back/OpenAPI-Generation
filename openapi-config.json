@@ -1,0 +1,8 @@
+{
+  "schemaFile": "./swagger.json",
+  "apiFile": "./src/store/emptyApi.ts",
+  "apiImport": "emptySplitApi",
+  "outputFile": "./rtk-query-codegen/postsApi.ts",
+  "exportName": "postsApi",
+  "hooks": true
+}

@@ -1,0 +1,14 @@
+.gitignore
+.npmignore
+.openapi-generator-ignore
+api.ts
+api/posts-api.ts
+base.ts
+common.ts
+configuration.ts
+git_push.sh
+index.ts
+models/create-post-dto.ts
+models/index.ts
+models/post.ts
+models/update-post-dto.ts

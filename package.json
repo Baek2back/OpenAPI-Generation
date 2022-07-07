@@ -1,0 +1,18 @@
+{
+  "name": "openapi-generation",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {},
+  "scripts": {
+    "generate:openapi-generator": "openapi-generator-cli generate",
+    "generate:openapi-typescript": "openapi-typescript ./swagger.json --output openapi-typescript/schema.ts",
+    "generate:openapi-typescript-codegen": "openapi -i ./swagger.json -o openapi-typescript-codegen -c axios --useOptions --useUnionTypes",
+    "generate:rtk-query": "npx @rtk-query/codegen-openapi ./openapi-config.json"
+  },
+  "devDependencies": {
+    "@openapitools/openapi-generator-cli": "^2.5.1",
+    "@rtk-query/codegen-openapi": "^1.0.0-alpha.1",
+    "openapi-typescript": "^5.4.0",
+    "openapi-typescript-codegen": "^0.23.0"
+  }
+}
